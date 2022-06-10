@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content_test %}
+<h1>Hello Django !</h1>
+    <p>Mes groupes préférés sont :</p>
+        <ul>
+            {% for test in tests %}
+            <li>{{ test.name }}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}
