@@ -19,10 +19,7 @@ from plateform import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sign_in/', views.sign_in),
-    path('sign_up', views.sign_up),
-    path('list_request', views.list_request),
-    path('create_request', views.create_request),
-    path('answer_request', views.answer_request),
-    path('test_django', views.test_django)
+    path('requests/', views.list_requests, name='list-request'),
+    path('requests/add/', views.create_request, name='create-request'),
+    path('requests/<id>/', views.detail_request, name='detail-request')
 ]

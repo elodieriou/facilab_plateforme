@@ -89,6 +89,9 @@ class Request(models.Model):
     applicant_id = models.ForeignKey(Applicant, blank=True, null=True, on_delete=models.SET_NULL)
     prescriber_id = models.ForeignKey(Prescriber, blank=True, null=True, on_delete=models.SET_NULL)
 
+    def __str__(self):
+        return f"{self.request_title} ({self.id})"
+
 
 class Response(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)

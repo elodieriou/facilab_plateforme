@@ -1,6 +1,7 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from plateform.models import Test
+from django.shortcuts import render, redirect
+from plateform.models import Test, Request
+from plateform.forms import RequestForm
 
 
 def test_django(request):
@@ -8,22 +9,34 @@ def test_django(request):
     return render(request, 'test.html', {'tests': tests})
 
 
-def sign_in(request):
-    return HttpResponse('<h1>Page de connection</h1>')
+def list_requests(request):
+    list_of_request = Request.objects.all()
+    return render(request, 'list_requests.html', {'requests': list_of_request})
 
 
-def sign_up(request):
-    return HttpResponse('<h1>Créer un compte</h1> <p>Voi comment gérer les 3 profils</p>')
+def detail_request(request, id):
+    detail_of_request = Request.objects.get(id=id)
+    return render(request, 'detail_request.html', {'request': detail_of_request})
 
+                  
+"""def create_request(request):
+    print('La méthode de requête est : ', request.method)
+    print('Les données POST sont : ', request.POST)
 
-def list_request(request):
-    return HttpResponse('<h1>Liste des demandes</h1>')
+    if request.method == 'POST':
+        form = CreateRequestForm(request.POST)
+        return redirect('list-request')
+    else:
+        form = CreateRequestForm()
+    return render(request, 'create_request.html', {'form_request': form})"""
 
 
 def create_request(request):
-    return HttpResponse('<h1>Créer une demande</h1>')
-
-
-def answer_request(request):
-    return HttpResponse('<h1>Répondre à une demande</h1>')
-
+    if request.method == 'POST':
+        form = RequestForm(request.POST)
+        if form.is_valid():
+            new_request = form.save()
+            return redirect('detail-request', new_request.id)
+    else:
+        form = RequestForm()
+    return render(request, 'create_request.html', {'form': form})
