@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from plateform.models import Test, Request
 from plateform.forms import RequestForm
@@ -9,6 +10,7 @@ def test_django(request):
     return render(request, 'test.html', {'tests': tests})
 
 
+@login_required
 def list_requests(request):
     list_of_request = Request.objects.all()
     return render(request, 'list_requests.html', {'requests': list_of_request})

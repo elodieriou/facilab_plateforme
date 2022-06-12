@@ -11,9 +11,15 @@
         </nav>
 
         {% block content_test %}{% endblock %}
+        {% block login %}{% endblock %}
         {% block list_requests %}{% endblock %}
         {% block detail_request %}{% endblock %}
         {% block create_request %}{% endblock %}
 
     </body>
+    <footer>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}">Se déconnecter</a>
+        {% endif %}
+    </footer>
 </html>
