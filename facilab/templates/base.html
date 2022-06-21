@@ -1,26 +1,41 @@
-{% load static %}
-<html>
+<!DOCTYPE html>
+<html lang="fr">
     <head>
+        <meta charset="utf-8">
         <title>FACIL@B</title>
+        {% load static %}
         <link rel="stylesheet" href="{% static 'base.css' %}"/>
+        <link rel="stylesheet" href="{% static 'list_requests.css' %}"/>
+        <link rel="stylesheet" href="{% static 'detail_request.css' %}"/>
     </head>
     <body>
-        <nav>
-            <a href="{% url 'list-request' %}">Liste des demandes</a>
-            <a href="{% url 'create-request' %}">Créer une demande</a>
-        </nav>
-
+        <header>
+            <img src="/static/images/logo_facilab.png" alt="logo facilab plateform">
+            <p>FACIL@B</p>
+            <nav>
+                <ul>
+                    <li>
+                      <a href="{% url 'list-request' %}">Liste des demandes</a>
+                    </li>
+                    <li>
+                      <a href="{% url 'create-request' %}">Créer une demande</a>
+                    </li>
+                    <li>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'logout' %}">Se déconnecter</a>
+                        {% endif %}
+                    </li>
+                  </ul>
+                </nav>
+        </header>
         {% block content_test %}{% endblock %}
         {% block login %}{% endblock %}
         {% block signup %}{% endblock %}
         {% block list_requests %}{% endblock %}
         {% block detail_request %}{% endblock %}
         {% block create_request %}{% endblock %}
-
     </body>
     <footer>
-        {% if user.is_authenticated %}
-            <a href="{% url 'logout' %}">Se déconnecter</a>
-        {% endif %}
+        <p>Plateforme FACIL@B</p>
     </footer>
 </html>
