@@ -84,8 +84,8 @@ class Request(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
-    request_title = models.CharField(max_length=255)
-    request_detail = models.TextField()
+    request_title = models.CharField(max_length=255, verbose_name='Titre')
+    request_detail = models.TextField(verbose_name='Description')
     applicant_id = models.ForeignKey(Applicant, blank=True, null=True, on_delete=models.SET_NULL)
     prescriber_id = models.ForeignKey(Prescriber, blank=True, null=True, on_delete=models.SET_NULL)
 

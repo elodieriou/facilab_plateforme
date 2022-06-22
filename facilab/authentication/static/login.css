@@ -1,8 +1,22 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
-body,
-html {
+
+body, html {
   margin: 0;
   height: 100%;
+}
+
+.bold-line {
+  background: #e7e7e7;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  width: 100%;
+  height: 360px;
+  z-index: 1;
+  opacity:0.1;
+  background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') left no-repeat;
+  background-size:cover;
 }
 
 input {
@@ -43,6 +57,12 @@ button:focus {
   text-align: center;
   margin-top: 10px;
   color: rgba(255, 255, 255, 0.65)
+}
+
+.link-signup {
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
 }
 
 .input-line:focus {
@@ -197,19 +217,7 @@ img {
   padding-top: 20px;
 }
 
-.bold-line {
-  background: #e7e7e7;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  margin: auto;
-  width: 100%;
-  height: 360px;
-  z-index: 1;
-  opacity:0.1;
-  background: url('https://pexels.imgix.net/photos/27718/pexels-photo-27718.jpg?fit=crop&w=1280&h=823') left no-repeat;
-  background-size:cover;
-}
+
 
 @media (max-width: 500px) {
   .window {

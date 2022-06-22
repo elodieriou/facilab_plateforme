@@ -19,3 +19,16 @@ class SignupForm(UserCreationForm):
         fields = ['type_user', 'first_name', 'last_name',
                   'number_route', 'name_route', 'additional_address',
                   'postcode', 'city', 'phone_number', 'email']
+
+    def __init__(self, *args, **kwargs):
+        super(SignupForm, self).__init__(*args, **kwargs)
+        self.fields['type_user'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['first_name'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['last_name'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['number_route'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['name_route'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['additional_address'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['postcode'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['city'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['phone_number'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['email'].widget.attrs.update({'class': 'input-line full-width'})

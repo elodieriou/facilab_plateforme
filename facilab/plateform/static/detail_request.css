@@ -1,5 +1,16 @@
-.request {
+.detail-request {
+        height: 100%;
+}
+
+.window-detail-request {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     height: auto;
+}
+
+.request {
+    height: 100%;
     width: 900px;
     box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
     background: #fff;
@@ -13,7 +24,7 @@
 .show-title {
     text-align: center;
     padding: 0px;
-    margin: 0px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
     border-bottom: 1px solid #6d64bb;
@@ -21,13 +32,10 @@
 
 h3 {
     font-family: "Open Sans";
-    background: #3498db;
     width: auto;
-    color: #fff;
-    text-transform:uppercase;
     font-size: 16px;
-    letter-spacing: 1px;
-    padding-left: 10px;
+    color: #3498db;
+    margin: 0px;
 }
 
 .cancel-icon {
@@ -35,4 +43,10 @@ h3 {
     width: 40px;
     position: absolute;
     margin-left: 500px;
+}
+
+.response {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    padding: 0px;
 }

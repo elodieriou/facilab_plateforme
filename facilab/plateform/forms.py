@@ -11,4 +11,4 @@ class RequestForm(forms.ModelForm):
     class Meta:
         """This class define the model use for the form"""
         model = Request
-        fields = '__all__'
+        fields = ['request_title', 'request_detail']

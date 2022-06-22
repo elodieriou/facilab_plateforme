@@ -2,12 +2,23 @@
 
 {% block create_request %}
 
-<h1>Création d'une demande</h1>
-<p>Veuillez remplir les champs ci-dessous: </p>
-<form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Valider la demande">
-</form>
+<article class="article-create-request">
+    <div class="window-create-request">
+            <div class="header-create-request">
+                <a href="{% url 'list-request' %}">
+                    <img class="cancel-create-request" src="/static/images/cancel_icon.png" alt="cancel icon">
+                </a>
+                <p class="title-create-request">Création d'une demande</p>
+            </div>
+            <div class="subtitle-create-request">Veuillez remplir les champs ci-dessous :</div>
+            <div class="form">
+                <form class="input-fields" action="" method="post" novalidate>
+                    {% csrf_token %}
+                    {{ form }}
+                    <input class="ghost-round full-width" type="submit" value="Valider la demande">
+                </form>
+            </div>
+    </div>
+</article>
 
 {% endblock %}
