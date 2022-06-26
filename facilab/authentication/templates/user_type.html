@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>FACIL@B</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'user_type.css' %}"/>
+    </head>
+    <body>
+        <div class='bold-line-profile'>
+            <img src="../static/images/logo_facilab.png" alt="logo facilab plateform">
+        </div>
+        <div class='container-profile'>
+            <div class='window-profile window-applicant'>
+                <div class='overlay-profile overlay-applicant'></div>
+                <div class='content-profile content-applicant'>
+                    <div class='welcome-profile welcome-applicant'>Demandeur</div>
+                    <div class='subtitle-profile subtitle-applicant'>Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                    <div class="button-profile"><a class="link-signup-profile link-signup-applicant" href="{% url 'user-applicant' %}">Créer un compte</a></div>
+                </div>
+            </div>
+            <div class='window-profile window-fablab'>
+                <div class='overlay-profile overlay-fablab'></div>
+                <div class='content-profile content-fablab'>
+                    <div class='welcome-profile welcome-fablab'>Fablab</div>
+                    <div class='subtitle-profile subtitle-fablab'>Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim
+                        ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo consequat.
+                        Duis aute irure dolor in reprehenderit in voluptate
+                        velit esse cillum dolore eu fugiat nulla pariatur.
+                        Excepteur sint occaecat cupidatat non proident,
+                        sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                    <div class="button-profile ghost-round"><a class="link-signup-profile link-signup-fablab" href="{% url 'user-fablab' %}">Créer un compte</a></div>
+                </div>
+             </div>
+        </div>
+    </body>
+</html>

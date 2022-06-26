@@ -1,5 +1,5 @@
 from django.contrib import admin
-from plateform.models import Test, Applicant, Prescriber, Fablab, Response, Request
+from plateform.models import Test, Request
 
 
 class TestAdmin(admin.ModelAdmin):
@@ -10,7 +10,7 @@ class TestAdmin(admin.ModelAdmin):
                     'second_updated')
 
 
-class ApplicantAdmin(admin.ModelAdmin):
+"""class ApplicantAdmin(admin.ModelAdmin):
     list_display = ('id',
                     'first_name',
                     'last_name',
@@ -47,6 +47,7 @@ class ResponseAdmin(admin.ModelAdmin):
                     'comment',
                     'created_at',
                     'updated_at')
+"""
 
 
 class RequestAdmin(admin.ModelAdmin):
@@ -57,8 +58,8 @@ class RequestAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Test, TestAdmin)
-admin.site.register(Applicant, ApplicantAdmin)
+"""admin.site.register(Applicant, ApplicantAdmin)
 admin.site.register(Prescriber, PrescriberAdmin)
 admin.site.register(Fablab, FablabAdmin)
-admin.site.register(Response, ResponseAdmin)
+admin.site.register(Response, ResponseAdmin)"""
 admin.site.register(Request, RequestAdmin)

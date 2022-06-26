@@ -12,14 +12,14 @@
             <div class='window-signup'>
                 <div class='overlay-signup'></div>
                 <div class='content-signup'>
-                    <div class='welcome-signup'>Créez votre compte FACIL@B</div>
-                    <div class='subtitle-signup'>Remplissez les champs ci-dessous :</div>
+                    <div class='welcome-signup'>Créez votre compte FACIL@B en tant que Fablab</div>
+                    <div class='subtitle-signup'>Remplissez les champs ci-dessous en tant que demandeur:</div>
                     <div>
                         {% if form.errors %}
                             {{ form.errors }}
                         {% endif %}
                     </div>
-                    <form class="input-fields" action="" method="post" novalidate>
+                    <form class="input-fields" action="{% url 'user-fablab' %}" method="post" novalidate>
                         {% csrf_token %}
                         {{ form }}
                         <input class="ghost-round full-width" type="submit" value="S'inscrire">
@@ -30,11 +30,3 @@
         </div>
     </body>
 </html>
-
-   <!-- <h2>Créer votre compte</h2>
-
-    <form method="post">
-        {{ form.as_p }}
-        {% csrf_token %}
-        <button type="submit" >S’inscrire</button>
-    </form>-->

@@ -1,8 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
-from django.views.generic import View
+from django.views.generic import View, CreateView
 from django.conf import settings
-from authentication.forms import LoginForm, SignupForm
+from authentication.forms import LoginForm, SignupApplicantForm, SignupFablabForm
+from authentication.models import User, ApplicantUser, FablabUser
 
 
 class LoginPage(View):
@@ -34,12 +35,27 @@ def logout_user(request):
     return redirect('login')
 
 
-def signup_page(request):
-    form = SignupForm()
-    if request.method == 'POST':
-        form = SignupForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request, user)
-            return redirect(settings.LOGIN_URL)
-    return render(request, 'signup.html', context={'form': form})
+def user_type(request):
+    return render(request, 'user_type.html')
+
+
+class SignupApplicant(CreateView):
+    model = User
+    form_class = SignupApplicantForm
+    template_name = 'user_applicant.html'
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('create-request')
+
+
+class SignupFablab(CreateView):
+    model = User
+    form_class = SignupFablabForm
+    template_name = 'user_fablab.html'
+
+    def form_valid(self, form):
+        user = form.save()
+        login(self.request, user)
+        return redirect('list-request')
