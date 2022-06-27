@@ -19,7 +19,7 @@ class LoginPage(View):
         form = LoginForm(request.POST)
         message = ''
         if form.is_valid():
-            user = authenticate(username=form.cleaned_data['email'],
+            user = authenticate(username=form.cleaned_data['username'],
                                 password=form.cleaned_data['password'])
             if user is not None:
                 login(request, user)

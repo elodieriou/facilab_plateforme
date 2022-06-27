@@ -5,12 +5,12 @@ from authentication.models import User, ApplicantUser, FablabUser
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(label='Votre identifiant (adresse mail)')
+    username = forms.CharField(max_length=50, label='Votre identifiant')
     password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Votre mot de passe')
 
     def __init__(self, *args, **kwargs):
         super(LoginForm, self).__init__(*args, **kwargs)
-        self.fields['email'].widget.attrs.update({'class': 'input-line full-width'})
+        self.fields['username'].widget.attrs.update({'class': 'input-line full-width'})
         self.fields['password'].widget.attrs.update({'class': 'input-line full-width'})
 
 
@@ -29,21 +29,30 @@ DEPARTMENTS = [('14', '14 - Calvados'),
 
 
 class SignupApplicantForm(UserCreationForm):
+    username = forms.CharField(
+        required=True,
+        label='Identifiant *')
+    password1 = forms.CharField(
+        required=True,
+        label='Mot de passe *')
+    password2 = forms.CharField(
+        required=True,
+        label='Confirmer le mot de passe *')
     first_name = forms.CharField(
         required=True,
-        label='Prénom')
+        label='Prénom *')
     last_name = forms.CharField(
         required=True,
-        label='Nom')
+        label='Nom *')
     phone_number = forms.CharField(
         required=True,
-        label='Téléphone')
+        label='Téléphone *')
     department = forms.ChoiceField(
         required=True,
         widget=forms.Select,
         choices=DEPARTMENTS,
-        label='Département')
-    number_route = forms.ChoiceField(
+        label='Département *')
+    number_route = forms.CharField(
         required=False,
         label='N° de voie')
     name_route = forms.CharField(
@@ -68,10 +77,13 @@ class SignupApplicantForm(UserCreationForm):
         required=False,
         label='Site internet')
 
+    username.widget.attrs.update({'class': 'input-line full-width'})
+    password1.widget.attrs.update({'class': 'input-line full-width'})
+    password2.widget.attrs.update({'class': 'input-line full-width'})
     first_name.widget.attrs.update({'class': 'input-line full-width'})
     last_name.widget.attrs.update({'class': 'input-line full-width'})
     phone_number.widget.attrs.update({'class': 'input-line full-width'})
-    department.widget.attrs.update({'class': 'input-line full-width'})
+    department.widget.attrs.update({'class': 'input-line full-width special-area'})
     number_route.widget.attrs.update({'class': 'input-line full-width'})
     name_route.widget.attrs.update({'class': 'input-line full-width'})
     additional_address.widget.attrs.update({'class': 'input-line full-width'})
@@ -109,25 +121,34 @@ class SignupApplicantForm(UserCreationForm):
 
 
 class SignupFablabForm(UserCreationForm):
+    username = forms.CharField(
+        required=True,
+        label='Identifiant *')
+    password1 = forms.CharField(
+        required=True,
+        label='Mot de passe *')
+    password2 = forms.CharField(
+        required=True,
+        label='Confirmer le mot de passe *')
     name = forms.CharField(
         required=True,
-        label='Nom du FabLab')
+        label='Nom du FabLab *')
     presentation = forms.CharField(
         required=True,
         widget=forms.Textarea,
-        label='Présentation')
+        label='Présentation *')
     phone_number = forms.CharField(
         required=True,
-        label='Téléphone')
+        label='Téléphone *')
     department = forms.ChoiceField(
         required=True,
         widget=forms.Select,
         choices=DEPARTMENTS,
-        label='Département')
+        label='Département *')
     web_site = forms.CharField(
         required=False,
         label='Site internet')
-    number_route = forms.ChoiceField(
+    number_route = forms.CharField(
         required=False,
         label='N° de voie')
     name_route = forms.CharField(
@@ -143,10 +164,13 @@ class SignupFablabForm(UserCreationForm):
         required=False,
         label='Ville')
 
+    username.widget.attrs.update({'class': 'input-line full-width'})
+    password1.widget.attrs.update({'class': 'input-line full-width'})
+    password2.widget.attrs.update({'class': 'input-line full-width'})
     name.widget.attrs.update({'class': 'input-line full-width'})
-    presentation.widget.attrs.update({'class': 'input-line full-width'})
+    presentation.widget.attrs.update({'class': 'input-line full-width special-area'})
     phone_number.widget.attrs.update({'class': 'input-line full-width'})
-    department.widget.attrs.update({'class': 'input-line full-width'})
+    department.widget.attrs.update({'class': 'input-line full-width special-area'})
     number_route.widget.attrs.update({'class': 'input-line full-width'})
     name_route.widget.attrs.update({'class': 'input-line full-width'})
     additional_address.widget.attrs.update({'class': 'input-line full-width'})

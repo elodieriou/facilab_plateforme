@@ -134,8 +134,6 @@ input {
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 25px;
   color: rgba(255, 255, 255, 0.65);
-  -webkit-align-self: flex-end;
-  -ms-flex-item-align: end;
   align-self: flex-end;
   font-size: 19px;
   font-size: 1.2rem;
@@ -177,6 +175,9 @@ input {
     font-family: roboto;
 }
 
+.special-area {
+    border: 1px solid rgba(255, 255, 255, 0.65);;
+}
 
 @media (max-width: 500px) {
   .window {

@@ -30,7 +30,7 @@ nav {
     height: 100%;
 }
 
-img {
+.logo-facilab {
     height: 100%;
     width: 70px;
 }
@@ -38,6 +38,8 @@ img {
 p {
     font-family: "Open Sans";
 }
+
+
 
 nav {
   max-width: 960px;
@@ -72,6 +74,25 @@ nav ul li a:hover {
   color: rgba(0, 35, 122, 0.7);
 }
 
+.display-user {
+    display: flex;
+    align-items: center;
+    border: 2px solid rgba(111, 84, 172, 1);
+    border-radius: 15px;
+    padding-left: 10px;
+    padding-right:10px;
+    margin-right: 20px;
+    width: auto;
+}
+
+.icon-user {
+    height: 30px;
+    width: 30px;
+}
+
+.username {
+    margin-left: 10px;
+}
 
 footer {
     background-color: white;

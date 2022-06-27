@@ -12,7 +12,7 @@
     </head>
     <body>
         <header>
-            <img src="/static/images/logo_facilab.png" alt="logo facilab plateform">
+            <img class="logo-facilab", src="/static/images/logo_facilab.png" alt="logo facilab plateform">
             <p>FACIL@B</p>
             <nav>
                 <ul>
@@ -29,6 +29,11 @@
                     </li>
                   </ul>
                 </nav>
+            <div class="display-user">
+                <img class="icon-user" src="/static/images/user_icon.png" alt="user icon">
+                <p class="username">{{request.user.username}}</p>
+            </div>
+
         </header>
         {% block content_test %}{% endblock %}
         {% block login %}{% endblock %}
