@@ -26,6 +26,7 @@ urlpatterns = [
     path('user-type/applicant', authentication.views.SignupApplicant.as_view(), name='user-applicant'),
     path('user-type/fablab', authentication.views.SignupFablab.as_view(), name='user-fablab'),
     path('requests/', views.list_requests, name='list-request'),
+    path('requests/fablab/', views.table_request, name='table-request'),
     path('requests/add/', views.create_request, name='create-request'),
     path('requests/<id>/', views.detail_request, name='detail-request')
 ]

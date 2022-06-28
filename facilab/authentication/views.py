@@ -22,9 +22,13 @@ class LoginPage(View):
             user = authenticate(username=form.cleaned_data['username'],
                                 password=form.cleaned_data['password'])
             if user is not None:
-                login(request, user)
-                """message = f"Vous êtes connecté !"""
-                return redirect('list-request')
+                if user.is_applicant is True:
+                    login(request, user)
+                    """message = f"Vous êtes connecté !"""
+                    return redirect('list-request')
+                elif user.is_fablab is True:
+                    login(request, user)
+                    return redirect('table-request')
             else:
                 message = "Identifiants invalides."
         return render(request, self.template_name, context={'form': form, 'message': message})
@@ -47,7 +51,7 @@ class SignupApplicant(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('create-request')
+        return redirect('list-request')
 
 
 class SignupFablab(CreateView):
@@ -58,4 +62,4 @@ class SignupFablab(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        return redirect('list-request')
+        return redirect('table-request')

@@ -8,9 +8,15 @@
     <article class="window-detail-request">
         <div class="request">
             <div class="show-title">
+                {% if user.is_applicant is True %}
                 <a href="{% url 'list-request' %}">
                     <img class="cancel-icon" src="/static/images/cancel_icon.png" alt="cancel icon">
                 </a>
+                {% elif user.is_fablab is True %}
+                <a href="{% url 'table-request' %}">
+                    <img class="cancel-icon" src="/static/images/cancel_icon.png" alt="cancel icon">
+                </a>
+                {% endif %}
                 <h2>{{ request.request_title }}</h2>
             </div>
             <div class="show-description">

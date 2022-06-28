@@ -9,23 +9,22 @@
             <input class="searchInput" type="text" name="" placeholder="Rechercher">
             <button class="searchButton" href="#">
                 <img class="material-icons" src="/static/images/search_icon.png" alt="search icon">
-                <!--<i class="material-icons"></i>-->
             </button>
         </div>
     </div>
     <article class="cards">
         {% for request in requests %}
-        <div class="content">
-            <div class="title">
-                <h2>{{ request.request_title }}</h2>
+            <div class="content">
+                <div class="title">
+                    <h2>{{ request.request_title }}</h2>
+                </div>
+                <div class="detail">
+                    <p>{{ request.request_detail }}</p>
+                </div>
+                <div class="button">
+                    <a class="link" href="{% url 'detail-request' request.id %}">Consulter</a>
+                </div>
             </div>
-            <div class="detail">
-                <p>{{ request.request_detail }}</p>
-            </div>
-            <div class="button">
-                <a class="link" href="{% url 'detail-request' request.id %}">Consulter</a>
-            </div>
-        </div>
         {% endfor %}
     </article>
 </div>

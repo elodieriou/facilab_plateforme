@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{% static 'list_requests.css' %}"/>
         <link rel="stylesheet" href="{% static 'detail_request.css' %}"/>
         <link rel="stylesheet" href="{% static 'create_request.css' %}"/>
+        <link rel="stylesheet" href="{% static 'table_request.css' %}"/>
     </head>
     <body>
         <header>
@@ -17,7 +18,11 @@
             <nav>
                 <ul>
                     <li>
+                        {% if request.user.is_applicant is True %}
                       <a href="{% url 'list-request' %}">Liste des demandes</a>
+                        {% else %}
+                      <a href="{% url 'table-request' %}">Liste des demandes</a>
+                        {% endif %}
                     </li>
                     <li>
                       <a href="{% url 'create-request' %}">Créer une demande</a>
@@ -35,12 +40,11 @@
             </div>
 
         </header>
-        {% block content_test %}{% endblock %}
-        {% block login %}{% endblock %}
-        {% block signup %}{% endblock %}
         {% block list_requests %}{% endblock %}
         {% block detail_request %}{% endblock %}
         {% block create_request %}{% endblock %}
+        {% block table_request %}{% endblock %}
+
     </body>
     <footer>
         <p>Plateforme FACIL@B</p>

@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from plateform.models import Test, Request
 from plateform.forms import RequestForm
+from authentication.models import User
 
 
 def test_django(request):
@@ -37,8 +38,16 @@ def create_request(request):
     if request.method == 'POST':
         form = RequestForm(request.POST)
         if form.is_valid():
-            new_request = form.save()
+            new_request = form.save(commit=False)
+            new_request.user = request.user
+            new_request.save()
             return redirect('detail-request', new_request.id)
     else:
         form = RequestForm()
     return render(request, 'create_request.html', {'form': form})
+
+
+@login_required
+def table_request(request):
+    table_of_request = Request.objects.all()
+    return render(request, 'table_request.html', {'requests': table_of_request})

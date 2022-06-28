@@ -78,7 +78,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     border: 2px solid rgba(111, 84, 172, 1);
-    border-radius: 15px;
+    border-radius: 30px;
     padding-left: 10px;
     padding-right:10px;
     margin-right: 20px;
