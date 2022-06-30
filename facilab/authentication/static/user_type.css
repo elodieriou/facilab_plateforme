@@ -24,11 +24,11 @@ body, html {
   flex-direction: column;
 }
 
-.title-profile {
+/*.title-profile {
     margin-top: 0px;
     margin-bottom: 0px;
     font-size: 60px;
-    color: rgba(111, 84, 172);
+    color: rgba(111, 84, 172);*/
 }
 
 img {
@@ -71,6 +71,8 @@ img {
 .overlay-profile {
   background: -webkit-linear-gradient(#2eabe6, #c6186e);
   background: linear-gradient(#2eabe6, #c6186e);
+  /*background: -webkit-linear-gradient(#54AC95, #00237A);
+  background: linear-gradient(#54AC95, #00237A);*/
   opacity: 0.85;
   filter: alpha(opacity=85);
   height: 440px;
@@ -81,6 +83,20 @@ img {
   justify-content: center;
   padding-top: 20px;
 }
+
+.overlay-applicant {
+    /*background: -webkit-linear-gradient(#54AC95, #00237A);
+    background: linear-gradient(#54AC95, #00237A);*/
+    /*background: #00237A;*/
+}
+
+.overlay-fablab {
+  /*background: -webkit-linear-gradient(#2eabe6, #c6186e);
+  background: linear-gradient(#2eabe6, #c6186e);*/
+  /*background: #c6186e;*/
+
+}
+
 
 .content-profile {
   padding-left: 25px;
@@ -105,7 +121,7 @@ img {
 .subtitle-profile {
   text-align: center;
   line-height: 22px;;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 17px;
   text-align: justify;
   letter-spacing: 0px;

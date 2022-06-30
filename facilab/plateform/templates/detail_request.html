@@ -31,6 +31,14 @@
                 <h3>Dernière mise à jour</h3>
                 <p class="response">{{ request.updated_at }}</p>
             </div>
+            <div class="show-applicant">
+                <h3>Demandeur</h3>
+                <p class="response">{{ user_applicant.first_name }} {{ user_applicant.last_name }}</p>
+            </div>
+            <div class="show-contact-applicant">
+                <h3>Contact</h3>
+                <p class="response">{{ user_applicant.phone_number }}</p>
+            </div>
         </div>
     </article>
 

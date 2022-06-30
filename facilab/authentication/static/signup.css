@@ -48,9 +48,9 @@ body, html {
 }
 
 .overlay-signup {
-    background: -webkit-linear-gradient(#2eabe6, #c6186e);
+  background: -webkit-linear-gradient(#2eabe6, #c6186e);
   background: linear-gradient(#2eabe6, #c6186e);
-  opacity: 0.85;
+  opacity: 0.8;
   filter: alpha(opacity=85);
   height: 1410px;
   position: absolute;
@@ -61,16 +61,17 @@ body, html {
   padding-top: 20px;
 }
 
+.overlay-applicant {
+    /*background: -webkit-linear-gradient(#54AC95, #00237A);
+    background: linear-gradient(#54AC95, #00237A);*/
+    /*background: #00237A;*/
+}
+
 .content-signup {
   padding-left: 25px;
   padding-right: 25px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   align-items: center;
-  -webkit-flex-flow: column;
-  -ms-flex-flow: column;
   flex-flow: column;
   z-index: 5;
 }

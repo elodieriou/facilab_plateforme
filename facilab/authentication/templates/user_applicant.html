@@ -10,15 +10,15 @@
         <div class='bold-line'></div>
         <div class='container'>
             <div class='window-signup'>
-                <div class='overlay-signup'></div>
+                <div class='overlay-signup overlay-applicant'></div>
                 <div class='content-signup'>
                     <div class='welcome-signup'>Créez votre compte FACIL@B</div>
                     <div class='subtitle-signup'>Remplissez les champs ci-dessous en tant que demandeur :</div>
-                    <div>
+                    <!--<div>
                         {% if form.errors %}
                             {{ form.errors }}
                         {% endif %}
-                    </div>
+                    </div>-->
                     <form class="input-fields" action="" method="post" novalidate>
                         {% csrf_token %}
                         {{ form }}
