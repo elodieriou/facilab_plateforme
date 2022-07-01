@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.views.generic.edit import UpdateView, DeleteView
+from django.urls import reverse_lazy
 from plateform.models import Test, Request
 from plateform.forms import RequestForm
 from authentication.models import User, ApplicantUser
@@ -45,6 +47,22 @@ def create_request(request):
     else:
         form = RequestForm()
     return render(request, 'create_request.html', {'form': form})
+
+
+class UpdateRequest(UpdateView):
+    model = Request
+    form_class = RequestForm
+    template_name = 'update_request.html'
+
+    def form_valid(self, form):
+        request = form.save()
+        return redirect('list-request')
+
+
+class DeleteRequest(DeleteView):
+    model = Request
+    template_name = 'delete_request.html'
+    success_url = reverse_lazy('list-request')
 
 
 @login_required

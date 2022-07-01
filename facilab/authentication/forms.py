@@ -34,9 +34,11 @@ class SignupApplicantForm(UserCreationForm):
         label='Identifiant *')
     password1 = forms.CharField(
         required=True,
+        widget=forms.PasswordInput,
         label='Mot de passe *')
     password2 = forms.CharField(
         required=True,
+        widget=forms.PasswordInput,
         label='Confirmer le mot de passe *')
     first_name = forms.CharField(
         required=True,

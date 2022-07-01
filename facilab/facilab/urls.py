@@ -27,6 +27,8 @@ urlpatterns = [
     path('user-type/fablab', authentication.views.SignupFablab.as_view(), name='user-fablab'),
     path('requests/', views.list_requests, name='list-request'),
     path('requests/fablab/', views.table_request, name='table-request'),
-    path('requests/add/', views.create_request, name='create-request'),
-    path('requests/<id>/', views.detail_request, name='detail-request')
+    path('requests/create/', views.create_request, name='create-request'),
+    path('requests/<id>/', views.detail_request, name='detail-request'),
+    path('requests/<pk>/update/', views.UpdateRequest.as_view(), name='update-request'),
+    path('requests/<pk>/delete/', views.DeleteRequest.as_view(), name='delete-request'),
 ]

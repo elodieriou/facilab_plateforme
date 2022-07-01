@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
-{% block create_request %}
+{% block delete_request %}
 <article class="article-create-request">
     <div class="window-create-request">
             <div class="header-create-request">
                 <a href="{% url 'list-request' %}">
                     <img class="cancel-create-request" src="/static/images/cancel_icon.png" alt="cancel icon">
                 </a>
-                <p class="title-create-request">Création d'une demande</p>
+                <p class="title-create-request">Suppression de la demande <br> {{ request.request_title }}</p>
             </div>
-            <div class="subtitle-create-request">Veuillez remplir les champs ci-dessous :</div>
+            <div class="subtitle-create-request">Voulez-vous vraiment supprimer cette demande ?</div>
             <div class="form">
                 <form class="input-fields" action="" method="post" novalidate>
                     {% csrf_token %}
-                    {{ form }}
-                    <input class="ghost-round full-width" type="submit" value="Valider la demande">
+                    <input class="ghost-round full-width" type="submit" value="Oui">
+                    <a class="ghost-round full-width" href="{% url 'list-request' %}">Non</a>
                 </form>
             </div>
     </div>
