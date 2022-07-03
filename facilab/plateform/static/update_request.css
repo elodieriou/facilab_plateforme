@@ -1,0 +1,14 @@
+.title-update-request {
+    text-transform: uppercase;
+    font-family: roboto;
+    font-size: 25px;
+    color: rgba(111, 84, 172, 1);
+    margin-bottom: 0px;
+}
+
+.name-update-request {
+    font-size: 20px;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 700;
+}

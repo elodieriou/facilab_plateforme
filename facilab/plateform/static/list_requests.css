@@ -1,5 +1,5 @@
 .list-request {
-    height: 100%;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
@@ -36,10 +36,28 @@ h1 {
 
 .title {
     border-bottom: 1px solid #6d64bb;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.update-delete {
+    width: 100%;
+    display: flex;
+    justify-content: right;
+}
+
+.pencil-icon,
+ .trash-icon {
+    width: 30px;
+    height: 30px;
 }
 
 h2 {
     font-family: "Open Sans";
+    margin-top: 0px;
 }
 
 .detail {

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block update_profile_applicant %}
+<article class="article-create-request">
+    <div class="window-create-request">
+            <div class="header-create-request">
+                <a href="{% url 'update-profile' user.id %}">
+                    <img class="pencil-icon" src="/static/images/pencil_icon.png" alt="pencil icon">
+                </a>
+                <a href="{% url 'list-request' %}">
+                    <img class="cancel-create-request" src="/static/images/cancel_icon.png" alt="cancel icon">
+                </a>
+                <div>
+                    <p class="title-update-request">Modification de profil</p>
+                    <p class="name-update-request">"{{ user.username }}"</p>
+                </div>
+
+            </div>
+            <div class="subtitle-create-request">Vous pouvez modifier les champs ci-dessous :</div>
+            <div class="show-description">
+                <h3>Description</h3>
+                <p class="response">{{ user_profile.username }}</p>
+            </div>
+            <div class="show-created-at">
+                <h3>Date de création</h3>
+                <p class="response">{{ applicant_profile.first_name }}</p>
+            </div>
+            <div class="show-updated-at">
+                <h3>Dernière mise à jour</h3>
+                <p class="response">{{ applicant_profile.last_name}}</p>
+            </div>
+    </div>
+</article>
+{% endblock %}

@@ -13,6 +13,10 @@ def test_django(request):
     return render(request, 'test.html', {'tests': tests})
 
 
+def home_page(request):
+    return render(request, 'home_page.html')
+
+
 @login_required
 def list_requests(request):
     list_of_request = Request.objects.filter(user=request.user)

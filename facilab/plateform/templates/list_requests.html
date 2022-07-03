@@ -16,13 +16,15 @@
         {% for request in requests %}
             <div class="content">
                 <div class="title">
+                    <div class="update-delete">
+                        <a href="{% url 'update-request' request.id %}">
+                            <img class="pencil-icon" src="/static/images/pencil_icon.png" alt="pencil icon">
+                        </a>
+                        <a href="{% url 'delete-request' request.id %}">
+                            <img class="trash-icon" src="/static/images/trash_icon.png" alt="trash icon">
+                        </a>
+                    </div>
                     <h2>{{ request.request_title }}</h2>
-                    <a href="{% url 'update-request' request.id %}">
-                        <img class="pencil-icon" src="/static/images/pencil_icon.png" alt="pencil icon">
-                    </a>
-                    <a href="{% url 'delete-request' request.id %}">
-                        <img class="trash-icon" src="/static/images/trash_icon.png" alt="trash icon">
-                    </a>
                 </div>
                 <div class="detail">
                     <p>{{ request.request_detail }}</p>

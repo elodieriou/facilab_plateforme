@@ -2,19 +2,22 @@
 
 {% block delete_request %}
 <article class="article-create-request">
-    <div class="window-create-request">
+    <div class="window-delete-request">
             <div class="header-create-request">
                 <a href="{% url 'list-request' %}">
                     <img class="cancel-create-request" src="/static/images/cancel_icon.png" alt="cancel icon">
                 </a>
-                <p class="title-create-request">Suppression de la demande <br> {{ request.request_title }}</p>
+                <div>
+                    <p class="title-update-request">Suppression de la demande</p>
+                    <p class="name-update-request">"{{ request.request_title }}"</p>
+                </div>
             </div>
             <div class="subtitle-create-request">Voulez-vous vraiment supprimer cette demande ?</div>
             <div class="form">
-                <form class="input-fields" action="" method="post" novalidate>
+                <form class="delete-input-fields" action="" method="post" novalidate>
                     {% csrf_token %}
-                    <input class="ghost-round full-width" type="submit" value="Oui">
-                    <a class="ghost-round full-width" href="{% url 'list-request' %}">Non</a>
+                    <input class="delete-ghost-round yes full-width" type="submit" value="Oui">
+                    <a class="delete-ghost-round no full-width" href="{% url 'list-request' %}">Non</a>
                 </form>
             </div>
     </div>
