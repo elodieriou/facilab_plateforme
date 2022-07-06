@@ -76,7 +76,7 @@ class UpdateProfileApplicant(UpdateView):
 
     def form_valid(self, form):
         user = form.save()
-        return redirect('list-request')
+        return redirect('profile-applicant')
 
 
 """def update_profile_applicant(request, id):

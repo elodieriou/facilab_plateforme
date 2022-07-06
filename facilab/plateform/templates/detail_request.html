@@ -17,23 +17,23 @@
                 {% endif %}
                 <h2>{{ request.request_title }}</h2>
             </div>
-            <div class="show-description">
+            <div>
                 <h3>Description</h3>
                 <p class="response">{{ request.request_detail }}</p>
             </div>
-            <div class="show-created-at">
+            <div>
                 <h3>Date de création</h3>
                 <p class="response">{{ request.created_at }}</p>
             </div>
-            <div class="show-updated-at">
+            <div>
                 <h3>Dernière mise à jour</h3>
                 <p class="response">{{ request.updated_at }}</p>
             </div>
-            <div class="show-applicant">
+            <div>
                 <h3>Demandeur</h3>
                 <p class="response">{{ user_applicant.first_name }} {{ user_applicant.last_name }}</p>
             </div>
-            <div class="show-contact-applicant">
+            <div>
                 <h3>Contact</h3>
                 <p class="response">{{ user_applicant.phone_number }}</p>
             </div>
