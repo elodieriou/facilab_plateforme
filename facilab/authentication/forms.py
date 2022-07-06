@@ -1,3 +1,4 @@
+"""This module defines forms base on models"""
 from django import forms
 from django.db import transaction
 from django.contrib.auth.forms import UserCreationForm
@@ -5,10 +6,18 @@ from authentication.models import User, ApplicantUser, FablabUser
 
 
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=50, label='Votre identifiant')
-    password = forms.CharField(max_length=63, widget=forms.PasswordInput, label='Votre mot de passe')
+    """This class define the login form"""
+    username = forms.CharField(
+        max_length=50,
+        label='Votre identifiant')
+    password = forms.CharField(
+        max_length=63,
+        widget=forms.PasswordInput,
+        label='Votre mot de passe')
 
     def __init__(self, *args, **kwargs):
+        """The init method is overwritten by added class on username attribute
+         and password attribute """
         super(LoginForm, self).__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'class': 'input-line full-width'})
         self.fields['password'].widget.attrs.update({'class': 'input-line full-width'})
@@ -29,6 +38,7 @@ DEPARTMENTS = [('14', '14 - Calvados'),
 
 
 class SignupApplicantForm(UserCreationForm):
+    """This class defines the signup applicant form"""
     username = forms.CharField(
         required=True,
         label='Identifiant *')
@@ -96,6 +106,7 @@ class SignupApplicantForm(UserCreationForm):
     web_site.widget.attrs.update({'class': 'input-line full-width'})
 
     class Meta(UserCreationForm.Meta):
+        """This class call the model user"""
         model = User
 
     @transaction.atomic
@@ -123,6 +134,7 @@ class SignupApplicantForm(UserCreationForm):
 
 
 class SignupFablabForm(UserCreationForm):
+    """This class defines the signup fablab form"""
     username = forms.CharField(
         required=True,
         label='Identifiant *')
@@ -181,6 +193,7 @@ class SignupFablabForm(UserCreationForm):
     web_site.widget.attrs.update({'class': 'input-line full-width'})
 
     class Meta(UserCreationForm.Meta):
+        """This class call the model user"""
         model = User
 
     @transaction.atomic

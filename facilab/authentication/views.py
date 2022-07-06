@@ -1,23 +1,27 @@
+"""This module defines some classes and functions that send HTTP response
+or HTML templating render"""
 from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views.generic import View, CreateView, UpdateView
-from django.urls import reverse
-from django.conf import settings
-from authentication.forms import LoginForm, SignupApplicantForm, SignupFablabForm
+from authentication.forms import SignupApplicantForm, SignupFablabForm
+from authentication.forms import LoginForm
 from authentication.models import User, ApplicantUser, FablabUser
 
 
 class LoginPage(View):
+    """This class defines the view login page"""
     form_class = LoginForm()
     template_name = 'login.html'
 
     def get(self, request):
+        """This method overrides the http get request"""
         form = self.form_class
         message = ''
-        return render(request, self.template_name, context={'form': form, 'message': message})
+        return render(request, self.template_name,
+                      context={'form': form, 'message': message})
 
     def post(self, request):
+        """This method overrides the http post request"""
         form = LoginForm(request.POST)
         message = ''
         if form.is_valid():
@@ -28,124 +32,62 @@ class LoginPage(View):
                 return redirect('home-page')
             else:
                 message = "Identifiants invalides."
-        return render(request, self.template_name, context={'form': form, 'message': message})
+        return render(request, self.template_name,
+                      context={'form': form, 'message': message})
 
 
 def logout_user(request):
+    """This function defines the logout process"""
     logout(request)
     return redirect('login')
 
 
 def user_type(request):
+    """This function defines the view of choosing profile"""
     return render(request, 'user_type.html')
 
 
 class SignupApplicant(CreateView):
+    """This class defines the signup applicant view"""
     model = User
     form_class = SignupApplicantForm
     template_name = 'user_applicant.html'
 
     def form_valid(self, form):
+        """This method defines the process if the form is valid"""
         user = form.save()
         login(self.request, user)
         return redirect('list-request')
 
 
 class SignupFablab(CreateView):
+    """This class defines the signup fablab view"""
     model = User
     form_class = SignupFablabForm
     template_name = 'user_fablab.html'
 
     def form_valid(self, form):
+        """This method defines the process if the form is valid"""
         user = form.save()
         login(self.request, user)
         return redirect('table-request')
 
 
 def detail_profile(request, id):
+    """This function defines the show profile view"""
     detail_of_profile = User.objects.get(id=id)
     applicant_element = ApplicantUser.objects.get(user_id=detail_of_profile)
-    return render(request, 'detail_profile_applicant.html', {'user_profile': detail_of_profile,
-                                                             'applicant_profile': applicant_element})
+    return render(request, 'detail_profile_applicant.html',
+                  {'user_profile': detail_of_profile, 'applicant_profile': applicant_element})
 
 
 class UpdateProfileApplicant(UpdateView):
+    """This class defines the update profile view"""
     model = User
     form_class = SignupApplicantForm
     template_name = 'update_profile_applicant.html'
 
     def form_valid(self, form):
+        """This method define the process if the form is valid"""
         user = form.save()
         return redirect('profile-applicant')
-
-
-"""def update_profile_applicant(request, id):
-    user = User.objects.get(id=id)
-    applicant_user = ApplicantUser.objects.get(user_id=user)
-    if request.method == 'POST':
-        user_form = LoginForm(request.POST, instance=user)
-        applicant_form = SignupApplicantForm(request.POST, instance=applicant_user)
-
-        if user_form.is_valid() and applicant_form.is_valid():
-            user_form.save()
-            applicant_form.save()
-            messages.success(request, 'Your profile is updated successfully')
-            return redirect('list-request')
-    else:
-        user_form = LoginForm()
-        applicant_form = SignupApplicantForm()
-
-    return render(request, 'update_profile_applicant.html', {'user_form': user_form, 'applicant_form': applicant_form})"""
-
-
-
-
-
-
-
-"""def update_profile(request, id):
-    user = User.objects.get(id=id)
-
-    if user.is_applicant is True:
-        applicant = ApplicantUser.objects.get(user=id)
-        if request.method == 'POST':
-            applicant_form = SignupApplicantForm(request.POST, instance=applicant)
-            if applicant_form.is_valid():
-                applicant_form.save()
-                return redirect('list-request', id=id)
-        else:
-            applicant_form = SignupApplicantForm(instance=request.applicant)
-        return render(request, 'detail_profile_applicant.html', {'applicant': applicant_form})
-
-    elif user.is_fablab is True:
-        fablab = FablabUser.objects.get(user=id)
-        if request.method == 'POST':
-            fablab_form = SignupApplicantForm(request.POST, instance=fablab)
-            if fablab_form.is_valid():
-                fablab_form.save()
-                return redirect('table-request', id=id)
-        else:
-            fablab_form = SignupFablabForm(instance=request.fablab)
-        return render(request, 'update_profile_applicant.html', {'fablab': fablab_form})"""
-
-
-
-
-"""class UpdateProfileApplicant(UpdateView):
-    model = User
-    form_class = SignupApplicantForm
-    template_name = 'detail_profile_applicant.html'
-
-    def form_valid(self, form_applicant):
-        user = form_applicant.save()
-        return redirect('list-request')
-
-
-class UpdateProfileFablab(UpdateView):
-    model = User
-    form_class = SignupFablabForm
-    template_name = 'update_profile_applicant.html'
-
-    def form_valid(self, form_fablab):
-        user = form_fablab.save()
-        return redirect('table-request')"""

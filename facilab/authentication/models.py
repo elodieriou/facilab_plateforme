@@ -1,19 +1,23 @@
+"""This module defines the models that define the database"""
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils import timezone
 
 
 class User(AbstractUser):
+    """This class define the table User"""
     is_applicant = models.BooleanField(default=False)
     is_fablab = models.BooleanField(default=False)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
+        """The method str render more readable the object User"""
         return f"{self.username} ({self.pk})"
 
 
 class ApplicantUser(models.Model):
+    """This class define the model Applicant base on the model User"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.fields.CharField(
         max_length=128,
@@ -38,6 +42,7 @@ class ApplicantUser(models.Model):
         verbose_name='Complément d\'adresse')
 
     class Department(models.TextChoices):
+        """This class define the list of departments"""
         CALVADOS = '14', '14 - Calvados'
         COTES_DARMOR = '22', '22 - Côtes d\'armor'
         FINISTERE = '29', '29 - Finistère'
@@ -84,10 +89,12 @@ class ApplicantUser(models.Model):
         verbose_name='Téléphone')
 
     def __str__(self):
+        """The method str render more readable the object User Applicant"""
         return f"{self.first_name} {self.last_name} ({self.pk})"
 
 
 class FablabUser(models.Model):
+    """This class define the model Fablab base on the model User"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(
         max_length=128,
@@ -97,6 +104,7 @@ class FablabUser(models.Model):
         verbose_name='Présentation')
 
     class Department(models.TextChoices):
+        """This class define the list of departments"""
         CALVADOS = '14', '14 - Calvados'
         COTES_DARMOR = '22', '22 - Côtes d\'armor'
         FINISTERE = '29', '29 - Finistère'
@@ -148,4 +156,5 @@ class FablabUser(models.Model):
         verbose_name='Site internet')
 
     def __str__(self):
+        """The method str render more readable the object User Applicant"""
         return f"{self.name} ({self.pk})"
