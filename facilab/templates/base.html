@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>FACIL@B</title>
+
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'base.css' %}"/>
+        <link rel="stylesheet" href="{% static 'home_page.css' %}"/>
+        <link rel="stylesheet" href="{% static 'list_requests.css' %}"/>
+        <link rel="stylesheet" href="{% static 'detail_request.css' %}"/>
+        <link rel="stylesheet" href="{% static 'create_request.css' %}"/>
+        <link rel="stylesheet" href="{% static 'update_request.css' %}"/>
+        <link rel="stylesheet" href="{% static 'delete_request.css' %}"/>
+        <link rel="stylesheet" href="{% static 'table_request.css' %}"/>
+        <link rel="stylesheet" href="{% static 'detail_profile.css' %}"/>
+    </head>
+    <body>
+        <header>
+            <img class="logo-facilab", src="/static/images/logo_facilab.png" alt="logo facilab plateform">
+            <p>FACIL@B</p>
+            <nav class="nav-applicant">
+                <div class="nav-element">
+                    <div class="circle-element">
+                        <img class="icon-nav-applicant" src="/static/images/home_icon.png" alt="home icon">
+                    </div>
+                    <a href="{% url 'home-page' %}">Accueil</a>
+                </div>
+                <div class="nav-element">
+
+                        <div class="circle-element">
+                                <img class="icon-nav-applicant" src="/static/images/table_icon.png" alt="table icon">
+                            </div>
+                            {% if user.is_applicant is True %}
+                            <a href="{% url 'table-request' %}">Toutes les demandes</a>
+                            {% elif user.is_fablab is True %}
+                            <a href="{% url 'table-request-fablab' %}">Toutes les demandes</a>
+                            {% endif %}
+                        </div>
+                {% if user.is_applicant is True %}
+                <div class="nav-element">
+                    <div class="circle-element">
+                        <img class="icon-nav-applicant" src="/static/images/list_icon.png" alt="list icon">
+                    </div>
+                    <a href="{% url 'list-request' %}">Mes demandes</a>
+                </div>
+                <div class="nav-element">
+                    <div class="circle-element">
+                        <img class="icon-nav-applicant" src="/static/images/add_icon.png" alt="add icon">
+                    </div>
+                    <a href="{% url 'create-request' %}">Créer une demande</a>
+                </div>
+                {% endif %}
+            </nav>
+            <div class="display-user">
+                <img class="icon-user" src="/static/images/user_icon.png" alt="user icon">
+                <p class="username">{{ user.username }}</p>
+                <div class="dropdown">
+                    {% if request.user.is_applicant is True %}
+                        <a href="{% url 'profile-applicant' user.id %}">Mon profil</a> <br>
+                    {% elif request.user.is_fablab is True %}
+                        <a href="#">Mon profil</a> <br>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}">Se déconnecter</a>
+                    {% endif %}
+                </div>
+            </div>
+
+
+        </header>
+        {% block home_page %}{% endblock %}
+        {% block list_requests %}{% endblock %}
+        {% block detail_request_list_applicant %}{% endblock %}
+        {% block detail_request_table_applicant %}{% endblock %}
+        {% block detail_request_fablab %}{% endblock %}
+        {% block create_request %}{% endblock %}
+        {% block update_request %}{% endblock %}
+        {% block delete_request %}{% endblock %}
+        {% block table_request %}{% endblock %}
+        {% block table_request_fablab %}{% endblock %}
+        {% block update_profile_applicant %}{% endblock %}
+        {% block update_profile_fablab %}{% endblock %}
+    </body>
+    <footer>
+        <p>Plateforme FACIL@B</p>
+    </footer>
+</html>

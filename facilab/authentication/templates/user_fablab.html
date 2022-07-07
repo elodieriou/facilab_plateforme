@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>FACIL@B</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'signup.css' %}"/>
+    </head>
+    <body>
+        <div class='bold-line'></div>
+        <div class='container'>
+            <div class='window-signup'>
+                <div class='overlay-signup'></div>
+                <div class='content-signup'>
+                    <div class='welcome-signup'>Créez votre compte FACIL@B</div>
+                    <div class='subtitle-signup'>Remplissez les champs ci-dessous en tant que Fablab:</div>
+                    <div>
+                        {% if form.errors %}
+                            {{ form.errors }}
+                        {% endif %}
+                    </div>
+                    <form class="input-fields" action="{% url 'user-fablab' %}" method="post" novalidate>
+                        {% csrf_token %}
+                        {{ form }}
+                        <input class="ghost-round full-width" type="submit" value="S'inscrire">
+                    </form>
+                </div>
+             </div>
+            <div class='spacing'>vous avez déjà un compte,  <a class="link-signup" href="{% url 'login' %}">Connectez-vous !</a></div>
+        </div>
+    </body>
+</html>

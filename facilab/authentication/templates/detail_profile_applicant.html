@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block update_profile_applicant %}
+<article class="article-detail-profile">
+    <div class="window-detail-profile">
+            <div class="header-detail-profile">
+                <a href="{% url 'list-request' %}">
+                    <img class="cancel-detail-profile" src="/static/images/cancel_icon.png" alt="cancel icon">
+                </a>
+                <div>
+                    <p class="title-detail-profile">CONSULTATION DU PROFIL</p>
+                    <p class="name-user">"{{ user.username }}"</p>
+                </div>
+            </div>
+            <div class="list-element-profile">
+                <div class="show-description">
+                    <h3>Nom d'utilisateur</h3>
+                    <p class="response">{{ user_profile.username }}</p>
+                </div>
+                <div class="show-created-at">
+                    <h3>Demandeur</h3>
+                    <p class="response">{{ applicant_profile.first_name }} {{ applicant_profile.last_name }}</p>
+                </div>
+                <div class="show-updated-at">
+                    <h3>Contact</h3>
+                    {% if applicant_profile.number_route|length > 0 and applicant_profile.name_route|length > 0 %}
+                        <p class="response">{{ applicant_profile.number_route}} {{ applicant_profile.name_route}}</p>
+                    {% endif %}
+                    {% if applicant_profile.additional_address|length > 0 %}
+                        <p class="response">{{ applicant_profile.additional_address }}</p>
+                    {% endif %}
+                    {% if applicant_profile.city|length > 0 and applicant_profile.postcode|length > 0 %}
+                        <p class="response">{{ applicant_profile.city }} {{ applicant_profile.postcode }}</p>
+                    {% endif %}
+                    <p class="response">{{ applicant_profile.phone_number }}</p>
+                </div>
+                <div class="show-updated-at">
+                    {% if applicant_profile.type_organization|length > 0 and applicant_profile.name_organization|length > 0 and applicant_profile.web_site|length > 0 %}
+                        <h3>Organisation</h3>
+                        <p class="response">{{ applicant_profile.type_organization }} {{ applicant_profile.name_organization }}</p>
+                        <p class="response">{{ applicant_profile.web_site }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="button-update-profile">
+                <a class="link-update-profile" href="{% url 'update-profile' user.id %}">Modifier mon profil</a>
+            </div>
+    </div>
+</article>
+{% endblock %}

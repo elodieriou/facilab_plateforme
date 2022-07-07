@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <title>FACIL@B</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'login.css' %}"/>
+    </head>
+    <body>
+        <div class='bold-line'></div>
+        <div class='container'>
+            <div class='window'>
+                <div class='overlay'>
+                    <img src="static/images/logo_facilab.png" alt="logo facilab plateform">
+                </div>
+                <div class='content'>
+                    <div class='welcome'>Plateforme FACIL@B</div>
+                    <div class='subtitle'>Connectez-vous</div>
+                    <form class="input-fields" action="" method="post" novalidate>
+                        {% csrf_token %}
+                        {{ form }}
+                        <input class="ghost-round full-width" type="submit" value="Se connecter">
+                    </form>
+                    <div class='spacing'>pas encore membre,  <a class="link-signup" href="{% url 'user-type' %}">Inscrivez-vous !</a></div>
+                </div>
+             </div>
+        </div>
+    </body>
+</html>

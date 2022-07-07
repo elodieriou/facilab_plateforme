@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,100,500);
+
+.article-create-request {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.window-create-request {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 900px;
+    height: 600px;
+    margin-top: 60px;
+    box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow-y: scroll;
+}
+
+.header-create-request {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.title-create-request {
+    text-transform: uppercase;
+    font-family: roboto;
+    font-size: 25px;
+    color: rgba(111, 84, 172, 1);
+}
+
+.cancel-create-request {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    margin-left: 500px;
+    margin-bottom: 30px;
+}
+
+.subtitle-create-request {
+    width: 100%;
+    text-align: center;
+    font-family: roboto;
+    font-size: 15px;
+    color: rgba(111, 84, 172, 0.7);
+}
+
+input {
+    border: 1px solid rgba(111, 84, 172, 0.7);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 700px;
+    font-family: roboto;
+    margin-bottom: 10px;
+    line-height: 2.4em;
+    font-family: roboto;
+    font-size: 19px;
+    line-height: 2.4em;
+}
+
+.ghost-round {
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgba(111, 84, 172, 0.65);
+  border-radius: 25px;
+  color: rgba(111, 84, 172, 1);
+  align-self: flex-end;
+  font-size: 19px;
+  font-size: 1.2rem;
+  font-family: roboto;
+  font-weight: 300;
+  line-height: 2.5em;
+  margin-top: 60px;;
+  margin-bottom: 25px;
+  transition: all .2s ease;
+  width: 100%;
+}
+
+.ghost-round:hover {
+  background: rgba(0, 35, 122, 0.6);
+  color: #fff;
+  transition: all .2s ease;
+}

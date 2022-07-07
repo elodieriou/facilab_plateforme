@@ -3,7 +3,7 @@ configuration and provides introspection"""
 from django.apps import AppConfig
 
 
-class PlateformConfig(AppConfig):
-    """This class defines the configuration of the plateform app"""
+class AuthenticationConfig(AppConfig):
+    """This class defines the configuration of the authentication app"""
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'plateform'
+    name = 'authentication'

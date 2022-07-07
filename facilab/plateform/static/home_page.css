@@ -1,0 +1,30 @@
+.content-home-page {
+    height: 100%;
+}
+
+.main-image {
+    width: 100%;
+    height: 500px;
+}
+
+.description-home-page {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+}
+
+.description-home-page p {
+    width: 800px;
+    color: white;
+    height: 100%;
+    padding-top: 15px;
+    margin-bottom: 90px;
+    font-size: 20px;
+    font-family: roboto;
+
+}
+
+span {
+    font-weight: 700;
+}

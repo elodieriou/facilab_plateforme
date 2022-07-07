@@ -1,0 +1,195 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+html {
+  height: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right top, #8e44ad 0%, #3498db 100%);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height: 100px;
+    margin: 0px ;
+    padding: 10px 0;
+    box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-fablab {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo-facilab {
+    height: 100%;
+    width: 100px;
+}
+
+p {
+    font-family: "Open Sans";
+}
+
+.nav-fablab {
+  max-width: 960px;
+  mask-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #ffffff 25%, #ffffff 75%, rgba(255, 255, 255, 0) 100%);
+  margin: 0 auto;
+  padding: 60px 0;
+}
+
+.nav-fablab ul {
+  text-align: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 25%, rgba(255, 255, 255, 0.2) 75%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+}
+
+.nav-fablab ul li {
+  display: inline-block;
+}
+
+.nav-fablab ul li a {
+  padding: 18px;
+  font-family: "Open Sans";
+  text-transform:uppercase;
+  color: rgba(111, 84, 172, 1);
+  font-size: 18px;
+  text-decoration: none;
+  display: block;
+}
+
+.nav-fablab ul li a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(0, 35, 122, 0.7);
+}
+
+.nav-applicant {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.nav-applicant .nav-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 230px;
+    margin: 20px;
+    padding: 20px;
+}
+
+.nav-applicant .nav-element:hover {
+    box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.nav-element:hover .circle-element {
+    background-color: rgba(111, 84, 172, 0.4);
+}
+
+.nav-element:hover a {
+    color: rgba(111, 84, 172, 1);
+}
+
+.nav-applicant .nav-element .circle-element {
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.nav-applicant .nav-element .circle-element .icon-nav-applicant {
+    width: 40px;
+    height: 40px;
+}
+
+.nav-applicant a {
+    font-family: roboto;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+    margin-top: 10px;
+
+}
+
+.nav-applicant a:hover {
+
+}
+
+.display-user {
+    border: 2px solid rgba(111, 84, 172, 1);
+    border-radius: 30px;
+    padding-left: 10px;
+    padding-right:10px;
+    margin-right: 20px;
+    width: auto;
+    display: flex;
+    align-items: center;
+}
+
+.icon-user {
+    height: 30px;
+    width: 30px;
+}
+
+.username {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.dropdown {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    margin-top: 128px;
+    padding-left: 10px;
+    margin-right: 30px;
+    background-color: white;
+    font-family: roboto;
+    width: 100%;
+    display: none;
+    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+
+.display-user:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+}
+
+.dropdown a:hover {
+    color: #3498db;
+}
+
+footer {
+    background-color: white;
+    height: 60px;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+
+}

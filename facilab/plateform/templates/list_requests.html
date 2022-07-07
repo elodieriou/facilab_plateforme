@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
 
 {% block list_requests %}
-<h1>La liste des demandes</h1>
-        <ul>
-            {% for request in requests %}
-            <li><a href="{% url 'detail-request' request.id %}">{{ request.request_title }}</a></li>
-                <p>{{ request.request_detail }}</p>
-            {% endfor %}
-        </ul>
+
+<div class="list-request">
+    <div class="header-list-request">
+        <h1>Mes demandes</h1>
+        <div class="searchBox">
+            <input class="searchInput" type="text" name="" placeholder="Rechercher">
+            <button class="searchButton" href="#">
+                <img class="material-icons" src="/static/images/search_icon.png" alt="search icon">
+            </button>
+        </div>
+    </div>
+    <article class="cards">
+        {% for request in requests %}
+            <div class="content">
+                <div class="title">
+                    <div class="update-delete">
+                        <a href="{% url 'update-request' request.id %}">
+                            <img class="pencil-icon" src="/static/images/pencil_icon.png" alt="pencil icon">
+                        </a>
+                        <a href="{% url 'delete-request' request.id %}">
+                            <img class="trash-icon" src="/static/images/trash_icon.png" alt="trash icon">
+                        </a>
+                    </div>
+                    <h2>{{ request.request_title }}</h2>
+                </div>
+                <div class="detail">
+                    <p>{{ request.request_detail }}</p>
+                </div>
+                <div class="button">
+                    <a class="link" href="{% url 'detail-request-list-applicant' request.id %}">Consulter</a>
+                </div>
+            </div>
+        {% endfor %}
+    </article>
+</div>
 
 {% endblock %}

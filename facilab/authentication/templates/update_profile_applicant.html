@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block update_profile_fablab %}
+<article class="article-create-request">
+    <div class="window-create-request">
+            <div class="header-create-request">
+                <a href="{% url 'profile-applicant' user.id %}">
+                    <img class="cancel-create-request" src="/static/images/cancel_icon.png" alt="cancel icon">
+                </a>
+                <div>
+                    <p class="title-update-request">Modification de profil</p>
+                    <p class="name-update-request">"{{ user.username }}"</p>
+                </div>
+
+            </div>
+            <div class="subtitle-create-request">Vous pouvez modifier les champs ci-dessous :</div>
+            <div class="form">
+                    <form class="input-fields" action="" method="post" novalidate>
+                        {% csrf_token %}
+                        {{ form }}
+                        <input class="ghost-round full-width" type="submit" value="Enregistrer mon profil">
+                    </form>
+            </div>
+    </div>
+</article>
+{% endblock %}
