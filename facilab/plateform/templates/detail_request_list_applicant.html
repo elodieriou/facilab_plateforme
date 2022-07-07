@@ -1,20 +1,14 @@
 {% extends 'base.html' %}
 
-{% block detail_request %}
+{% block detail_request_list_applicant %}
 <div class="detail-request">
     <h1>Consultation d'une demande</h1>
     <article class="window-detail-request">
         <div class="request">
             <div class="show-title">
-                {% if user.is_applicant is True %}
                 <a href="{% url 'list-request' %}">
                     <img class="cancel-icon" src="/static/images/cancel_icon.png" alt="cancel icon">
                 </a>
-                {% elif user.is_fablab is True %}
-                <a href="{% url 'table-request' %}">
-                    <img class="cancel-icon" src="/static/images/cancel_icon.png" alt="cancel icon">
-                </a>
-                {% endif %}
                 <h2>{{ request.request_title }}</h2>
             </div>
             <div>
@@ -28,14 +22,6 @@
             <div>
                 <h3>Dernière mise à jour</h3>
                 <p class="response">{{ request.updated_at }}</p>
-            </div>
-            <div>
-                <h3>Demandeur</h3>
-                <p class="response">{{ user_applicant.first_name }} {{ user_applicant.last_name }}</p>
-            </div>
-            <div>
-                <h3>Contact</h3>
-                <p class="response">{{ user_applicant.phone_number }}</p>
             </div>
         </div>
     </article>

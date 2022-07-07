@@ -30,14 +30,44 @@ def table_request(request):
 
 
 @login_required
-def detail_request(request, id):
+def table_request_fablab(request):
+    """This function defines the list of all request for the fablab profile"""
+    table_of_request = Request.objects.all()
+    return render(request, 'table_request_fablab.html', {'requests': table_of_request})
+
+
+@login_required
+def detail_request_list_applicant(request, id):
     """This function defines the show request view"""
     detail_of_request = Request.objects.get(id=id)
     user_search = User.objects.get(request=id)
     applicant_element = ApplicantUser.objects.get(user_id=user_search)
-    return render(request, 'detail_request.html', {'request': detail_of_request,
-                                                   'user_request': user_search,
-                                                   'user_applicant': applicant_element})
+    return render(request, 'detail_request_list_applicant.html',
+                  {'request': detail_of_request,
+                   'user_request': user_search,
+                   'user_applicant': applicant_element})
+
+
+@login_required
+def detail_request_table_applicant(request, id):
+    """This function defines the show request view"""
+    detail_of_request = Request.objects.get(id=id)
+    user_search = User.objects.get(request=id)
+    applicant_element = ApplicantUser.objects.get(user_id=user_search)
+    return render(request, 'detail_request_table_applicant.html',
+                  {'request': detail_of_request,
+                   'user_request': user_search,
+                   'user_applicant': applicant_element})
+
+
+@login_required()
+def detail_request_fablab(request, id):
+    detail_of_request = Request.objects.get(id=id)
+    user_search = User.objects.get(request=id)
+    applicant_element = ApplicantUser.objects.get(user_id=user_search)
+    return render(request, 'detail_request_fablab.html', {'request': detail_of_request,
+                                                          'user_request': user_search,
+                                                          'user_applicant': applicant_element})
 
 
 @login_required
@@ -49,7 +79,7 @@ def create_request(request):
             new_request = form.save(commit=False)
             new_request.user = request.user
             new_request.save()
-            return redirect('detail-request', new_request.id)
+            return redirect('detail-request-list-applicant', new_request.id)
     else:
         form = RequestForm()
     return render(request, 'create_request.html', {'form': form})

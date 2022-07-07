@@ -18,7 +18,7 @@ class User(AbstractUser):
 
 class ApplicantUser(models.Model):
     """This class define the model Applicant base on the model User"""
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     first_name = models.fields.CharField(
         max_length=128,
         verbose_name='Prénom')

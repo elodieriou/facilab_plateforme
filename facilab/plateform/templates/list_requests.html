@@ -4,7 +4,7 @@
 
 <div class="list-request">
     <div class="header-list-request">
-        <h1>Liste des demandes</h1>
+        <h1>Mes demandes</h1>
         <div class="searchBox">
             <input class="searchInput" type="text" name="" placeholder="Rechercher">
             <button class="searchButton" href="#">
@@ -30,7 +30,7 @@
                     <p>{{ request.request_detail }}</p>
                 </div>
                 <div class="button">
-                    <a class="link" href="{% url 'detail-request' request.id %}">Consulter</a>
+                    <a class="link" href="{% url 'detail-request-list-applicant' request.id %}">Consulter</a>
                 </div>
             </div>
         {% endfor %}

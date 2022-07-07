@@ -2,6 +2,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
+    padding-bottom: 50px;
 }
 
 .header-list-request {
@@ -41,6 +42,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
 
 .update-delete {

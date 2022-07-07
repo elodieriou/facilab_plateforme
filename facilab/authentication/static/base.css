@@ -93,11 +93,10 @@ p {
 .nav-applicant .nav-element:hover {
     box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-
 }
 
 .nav-element:hover .circle-element {
-    background-color: rgba(111, 84, 172, 0.6);
+    background-color: rgba(111, 84, 172, 0.4);
 }
 
 .nav-element:hover a {
@@ -106,7 +105,6 @@ p {
 
 .nav-applicant .nav-element .circle-element {
     width: 50px;
-    border: 3px solid black;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -120,7 +118,7 @@ p {
 
 .nav-applicant a {
     font-family: roboto;
-    font-size: 18px;
+    font-size: 15px;
     text-transform: uppercase;
     text-decoration: none;
     color: black;

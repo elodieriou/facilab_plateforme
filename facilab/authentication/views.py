@@ -3,6 +3,7 @@ or HTML templating render"""
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.views.generic import View, CreateView, UpdateView
+from django.urls import reverse_lazy
 from authentication.forms import SignupApplicantForm, SignupFablabForm
 from authentication.forms import LoginForm
 from authentication.models import User, ApplicantUser, FablabUser
@@ -81,13 +82,24 @@ def detail_profile(request, id):
                   {'user_profile': detail_of_profile, 'applicant_profile': applicant_element})
 
 
-class UpdateProfileApplicant(UpdateView):
-    """This class defines the update profile view"""
+def update_profile(request, id):
+    user = User.objects.get(id=id)
+    if request.method == 'POST':
+        form = SignupApplicantForm(request.POST, instance=user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('profile-applicant', user.id)
+    else:
+        form = SignupApplicantForm(instance=user)
+    return render(request, 'update_profile_applicant.html', {'form': form})
+
+
+"""class UpdateProfileApplicant(UpdateView):
     model = User
     form_class = SignupApplicantForm
     template_name = 'update_profile_applicant.html'
+    success_url = reverse_lazy('profile-applicant', model.id)
 
-    def form_valid(self, form):
-        """This method define the process if the form is valid"""
-        user = form.save()
-        return redirect('profile-applicant')
+    def get_object(self):
+        return self.request.user"""

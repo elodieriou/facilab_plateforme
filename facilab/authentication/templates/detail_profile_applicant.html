@@ -25,9 +25,11 @@
                     <h3>Contact</h3>
                     {% if applicant_profile.number_route|length > 0 and applicant_profile.name_route|length > 0 %}
                         <p class="response">{{ applicant_profile.number_route}} {{ applicant_profile.name_route}}</p>
-                    {% elif applicant_profile.additional_address|length > 0 %}
+                    {% endif %}
+                    {% if applicant_profile.additional_address|length > 0 %}
                         <p class="response">{{ applicant_profile.additional_address }}</p>
-                    {% elif applicant_profile.city|length > 0 and applicant_profile.postcode|length > 0 %}
+                    {% endif %}
+                    {% if applicant_profile.city|length > 0 and applicant_profile.postcode|length > 0 %}
                         <p class="response">{{ applicant_profile.city }} {{ applicant_profile.postcode }}</p>
                     {% endif %}
                     <p class="response">{{ applicant_profile.phone_number }}</p>
