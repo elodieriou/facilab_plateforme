@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block update_request %}
-<article class="article-create-request">
-    <div class="window-create-request">
-            <div class="header-create-request">
+<article class="article-update-request">
+    <div class="window-update-request">
+            <div class="header-update-request">
                 <a href="{% url 'list-request' %}">
-                    <img class="cancel-create-request" src="/static/images/cancel_icon.png" alt="cancel icon">
+                    <img class="cancel-update-request" src="/static/images/cancel_icon.png" alt="cancel icon">
                 </a>
                 <div>
                     <p class="title-update-request">Modification de la demande</p>
                     <p class="name-update-request">"{{ request.request_title }}"</p>
                 </div>
             </div>
-            <div class="subtitle-create-request">Vous pouvez modifier les champs ci-dessous :</div>
+            <div class="subtitle-update-request">Vous pouvez modifier les champs ci-dessous :</div>
             <div class="form">
                 <form class="input-fields" action="" method="post" novalidate>
                     {% csrf_token %}

@@ -38,11 +38,11 @@ h3 {
     margin: 0px;
 }
 
-.cancel-icon {
+.cancel-detail-icon {
     height: 40px;
     width: 40px;
     position: absolute;
-    margin-left: 500px;
+    margin-left: 400px;
 }
 
 .response {

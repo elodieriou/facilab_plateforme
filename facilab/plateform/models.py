@@ -4,14 +4,57 @@ from django.utils import timezone
 from authentication.models import User
 
 
+CATEGORIE_CHOICES = [
+    ('ATI', 'Aides techniques'),
+    ('ATO', 'Aides technologiques'),
+    ('ADO', 'Aides domotiques'),
+    ('GBA', 'Gabarits')
+]
+
+MATIERE_CHOICES = [
+    ('NR', 'Pas de matière prédéfinie'),
+    ('TX', 'Textile'),
+    ('MT', 'Métal'),
+    ('PL', 'Plastique'),
+    ('BO', 'Bois')
+]
+
+CONTRAINTE_CHOICES = [
+    ('NR', 'Pas de contrainte identifiée'),
+    ('NA', 'Normes alimentaires')
+]
+
+
 class Request(models.Model):
     """This class define the table Request"""
-    id = models.AutoField(primary_key=True)
-    created_at = models.DateTimeField(default=timezone.now)
-    updated_at = models.DateTimeField(auto_now=True)
-    request_title = models.CharField(max_length=255, verbose_name='Titre')
-    request_detail = models.TextField(verbose_name='Description')
-    user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+    id = models.AutoField(
+        primary_key=True)
+    created_at = models.DateTimeField(
+        default=timezone.now)
+    updated_at = models.DateTimeField(
+        auto_now=True)
+    request_title = models.CharField(
+        max_length=255,
+        verbose_name='Titre')
+    request_detail = models.TextField(
+        verbose_name='Description')
+    categorie = models.CharField(
+        choices=CATEGORIE_CHOICES,
+        max_length=55,
+        verbose_name='Catégorie')
+    matiere = models.CharField(
+        choices=MATIERE_CHOICES,
+        max_length=55,
+        verbose_name='Matière')
+    contrainte = models.CharField(
+        choices=CONTRAINTE_CHOICES,
+        max_length=55,
+        verbose_name='Contrainte')
+    user = models.ForeignKey(
+        User,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL)
 
     def __str__(self):
         """The method str render more readable the object Request"""
