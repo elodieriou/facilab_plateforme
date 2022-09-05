@@ -5,23 +5,23 @@ from authentication.models import User
 
 
 CATEGORIE_CHOICES = [
-    ('ATI', 'Aides techniques'),
-    ('ATO', 'Aides technologiques'),
-    ('ADO', 'Aides domotiques'),
-    ('GBA', 'Gabarits')
+    ('Aides techniques', 'Aides techniques'),
+    ('Aides technologiques', 'Aides technologiques'),
+    ('Aides domotiques', 'Aides domotiques'),
+    ('Gabarits', 'Gabarits')
 ]
 
 MATIERE_CHOICES = [
-    ('NR', 'Pas de matière prédéfinie'),
-    ('TX', 'Textile'),
-    ('MT', 'Métal'),
-    ('PL', 'Plastique'),
-    ('BO', 'Bois')
+    ('Pas de matière prédéfinie', 'Pas de matière prédéfinie'),
+    ('Textile', 'Textile'),
+    ('Métal', 'Métal'),
+    ('Plastique', 'Plastique'),
+    ('Bois', 'Bois')
 ]
 
 CONTRAINTE_CHOICES = [
-    ('NR', 'Pas de contrainte identifiée'),
-    ('NA', 'Normes alimentaires')
+    ('Pas de contrainte identifiée', 'Pas de contrainte identifiée'),
+    ('Normes alimentaires', 'Normes alimentaires')
 ]
 
 
