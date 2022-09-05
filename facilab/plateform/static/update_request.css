@@ -27,12 +27,19 @@
     margin-top: 20px;
 }
 
+.sub-header-update-request {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
 .title-update-request {
     text-transform: uppercase;
     font-family: roboto;
     font-size: 25px;
     color: rgba(111, 84, 172, 1);
     margin-bottom: 0px;
+    text-align: center;
 }
 
 .name-update-request {
@@ -46,7 +53,7 @@
     height: 40px;
     width: 40px;
     position: absolute;
-    margin-left: 560px;
+    margin-left: 730px;
     margin-bottom: 30px;
 }
 
