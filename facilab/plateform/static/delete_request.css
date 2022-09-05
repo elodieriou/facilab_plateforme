@@ -1,14 +1,69 @@
+.article-delete-request {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
 .window-delete-request {
     background: white;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 800px;
-    height: 280px;
+    height: 400px;
     margin-top: 80px;
     box-shadow: 0px 15px 50px 10px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
     overflow-y: scroll;
+}
+
+.header-delete-request {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.sub-header-delete-request {
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+}
+
+.title-delete-request {
+    text-transform: uppercase;
+    font-family: roboto;
+    font-size: 25px;
+    color: rgba(111, 84, 172, 1);
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.name-delete-request {
+    font-size: 20px;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 700;
+    width: 100%;
+}
+
+
+.subtitle-delete-request {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    font-family: roboto;
+    font-size: 15px;
+    color: rgba(111, 84, 172, 0.7);
+}
+
+.cancel-delete-request {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    margin-left: 680px;
+    margin-bottom: 30px;
 }
 
 .delete-input-fields {
@@ -23,7 +78,6 @@
     line-height: 2.4em;
     font-family: roboto;
     font-size: 19px;
-    line-height: 2.4em;
 }
 
 .delete-ghost-round {
