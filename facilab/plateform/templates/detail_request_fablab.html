@@ -22,6 +22,22 @@
                 <h3>Numéro téléphone</h3>
                 <p class="response">{{ user_applicant.phone_number }}</p>
             </div>
+            <div>
+                <h3>Adresse mail</h3>
+                <p class="response">{{ user_applicant.email }}</p>
+            </div>
+            {% if user_applicant.name_organisation|length > 0 %}
+            <div>
+                <h3>Organisation</h3>
+                <p class="response">{{ user_applicant.name_organisation }}</p>
+            </div>
+            {% endif %}
+            {% if user_applicant.web_site|length > 0 %}
+            <div>
+                <h3>Site internet</h3>
+                <p class="response">{{ user_applicant.web_site }}</p>
+            </div>
+            {% endif %}
         </div>
         <div class="request">
             <div class="header-detail-request">

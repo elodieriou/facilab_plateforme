@@ -59,6 +59,9 @@ class SignupApplicantForm(UserCreationForm):
     phone_number = forms.CharField(
         required=True,
         label='Téléphone *')
+    email = forms.EmailField(
+        required=True,
+        label='Adresse mail *')
     department = forms.ChoiceField(
         required=True,
         widget=forms.Select,
@@ -95,6 +98,7 @@ class SignupApplicantForm(UserCreationForm):
     first_name.widget.attrs.update({'class': 'input-line full-width'})
     last_name.widget.attrs.update({'class': 'input-line full-width'})
     phone_number.widget.attrs.update({'class': 'input-line full-width'})
+    email.widget.attrs.update({'class': 'input-line full-width'})
     department.widget.attrs.update({'class': 'input-line full-width special-area'})
     number_route.widget.attrs.update({'class': 'input-line full-width'})
     name_route.widget.attrs.update({'class': 'input-line full-width'})
@@ -120,6 +124,7 @@ class SignupApplicantForm(UserCreationForm):
         applicant.first_name = self.cleaned_data.get('first_name')
         applicant.last_name = self.cleaned_data.get('last_name')
         applicant.phone_number = self.cleaned_data.get('phone_number')
+        applicant.email = self.cleaned_data.get('email')
         applicant.department = self.cleaned_data.get('department')
         applicant.number_route = self.cleaned_data.get('number_route')
         applicant.name_route = self.cleaned_data.get('name_route')
@@ -154,6 +159,9 @@ class SignupFablabForm(UserCreationForm):
     phone_number = forms.CharField(
         required=True,
         label='Téléphone *')
+    email = forms.EmailField(
+        required=True,
+        label='Adresse mail *')
     department = forms.ChoiceField(
         required=True,
         widget=forms.Select,
@@ -184,6 +192,7 @@ class SignupFablabForm(UserCreationForm):
     name.widget.attrs.update({'class': 'input-line full-width'})
     presentation.widget.attrs.update({'class': 'input-line full-width special-area'})
     phone_number.widget.attrs.update({'class': 'input-line full-width'})
+    email.widget.attrs.update({'class': 'input-line full-width'})
     department.widget.attrs.update({'class': 'input-line full-width special-area'})
     number_route.widget.attrs.update({'class': 'input-line full-width'})
     name_route.widget.attrs.update({'class': 'input-line full-width'})
@@ -207,6 +216,7 @@ class SignupFablabForm(UserCreationForm):
         fablab.name = self.cleaned_data.get('name')
         fablab.presentation = self.cleaned_data.get('presentation')
         fablab.phone_number = self.cleaned_data.get('phone_number')
+        fablab.email = self.cleaned_data.get('email')
         fablab.department = self.cleaned_data.get('department')
         fablab.number_route = self.cleaned_data.get('number_route')
         fablab.name_route = self.cleaned_data.get('name_route')
