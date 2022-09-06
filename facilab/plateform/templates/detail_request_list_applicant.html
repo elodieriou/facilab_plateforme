@@ -2,18 +2,33 @@
 
 {% block detail_request_list_applicant %}
 <div class="detail-request">
-    <h1>Consultation d'une demande</h1>
+    <h1>Consultation de ma demande</h1>
     <article class="window-detail-request">
         <div class="request">
-            <div class="show-title">
-                <a href="{% url 'list-request' %}">
-                    <img class="cancel-icon" src="/static/images/cancel_icon.png" alt="cancel icon">
-                </a>
-                <h2>{{ request.request_title }}</h2>
+            <div class="header-detail-request">
+                <div class="show-title">
+                    <a href="{% url 'list-request' %}">
+                        <img class="cancel-detail-icon" src="/static/images/cancel_icon.png" alt="cancel icon">
+                    </a>
+                    <h2>{{ request.request_title }}</h2>
+                </div>
             </div>
+
             <div>
                 <h3>Description</h3>
                 <p class="response">{{ request.request_detail }}</p>
+            </div>
+            <div>
+                <h3>Catégorie</h3>
+                <p class="response">{{ request.categorie }}</p>
+            </div>
+            <div>
+                <h3>Matière</h3>
+                <p class="response">{{ request.matiere }}</p>
+            </div>
+            <div>
+                <h3>Contrainte</h3>
+                <p class="response">{{ request.contrainte }}</p>
             </div>
             <div>
                 <h3>Date de création</h3>

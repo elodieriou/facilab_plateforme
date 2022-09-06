@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block delete_request %}
-<article class="article-create-request">
+<article class="article-delete-request">
     <div class="window-delete-request">
-            <div class="header-create-request">
+            <div class="header-delete-request">
                 <a href="{% url 'list-request' %}">
-                    <img class="cancel-create-request" src="/static/images/cancel_icon.png" alt="cancel icon">
+                    <img class="cancel-delete-request" src="/static/images/cancel_icon.png" alt="cancel icon">
                 </a>
-                <div>
-                    <p class="title-update-request">Suppression de la demande</p>
-                    <p class="name-update-request">"{{ request.request_title }}"</p>
+                <div class="sub-header-delete-request">
+                    <p class="title-delete-request">Suppression de la demande</p>
+                    <p class="name-delete-request">"{{ request.request_title }}"</p>
                 </div>
             </div>
-            <div class="subtitle-create-request">Voulez-vous vraiment supprimer cette demande ?</div>
+            <div class="subtitle-delete-request">Voulez-vous vraiment supprimer cette demande ?</div>
             <div class="form">
                 <form class="delete-input-fields" action="" method="post" novalidate>
                     {% csrf_token %}

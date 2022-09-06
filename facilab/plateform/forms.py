@@ -8,4 +8,4 @@ class RequestForm(forms.ModelForm):
     class Meta:
         """This class define the model use for the form"""
         model = Request
-        fields = ['request_title', 'request_detail']
+        fields = ['request_title', 'request_detail', 'categorie', 'matiere', 'contrainte']
