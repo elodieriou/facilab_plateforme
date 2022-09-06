@@ -87,6 +87,10 @@ class ApplicantUser(models.Model):
     phone_number = models.fields.CharField(
         max_length=10,
         verbose_name='Téléphone')
+    email = models.EmailField(
+        max_length=254,
+        null=True,
+        verbose_name='Adresse mail')
 
     def __str__(self):
         """The method str render more readable the object User Applicant"""
@@ -124,6 +128,10 @@ class FablabUser(models.Model):
     phone_number = models.fields.CharField(
         max_length=10,
         verbose_name='Téléphone')
+    email = models.EmailField(
+        max_length=254,
+        null=True,
+        verbose_name='Adresse mail')
     number_route = models.fields.CharField(
         max_length=10,
         blank=True,
