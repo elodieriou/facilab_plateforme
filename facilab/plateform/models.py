@@ -61,6 +61,27 @@ class Request(models.Model):
         return f"{self.request_title} ({self.id})"
 
 
+class Response(models.Model):
+    """This class define the table Response"""
+    id = models.AutoField(
+        primary_key=True)
+    created_at = models.DateTimeField(
+        default=timezone.now)
+    updated_at = models.DateTimeField(
+        auto_now=True)
+    comment = models.TextField(
+        verbose_name='Commentaire')
+    request_id = models.ForeignKey(
+        Request,
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL)
+
+    def __str__(self):
+        """The method str render more readable the object Response"""
+        return f"{self.id}, {self.comment}"
+
+
 """class Response(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     created_at = models.DateTimeField(default=timezone.now)
